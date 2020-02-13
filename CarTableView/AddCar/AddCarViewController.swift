@@ -7,15 +7,15 @@
 //
 
 import UIKit
+import Foundation
 
 class AddCarViewController: UIViewController {
 
-    @IBOutlet weak var addCarManufacturerTextField: UITextField!
-    @IBOutlet weak var addCarModelTextField: UITextField!
+    @IBOutlet weak var carManufacturerTextField: UITextField!
+    @IBOutlet weak var carModelTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     @IBAction func didTappedCancelButton(_ sender: UIButton) {
@@ -23,18 +23,12 @@ class AddCarViewController: UIViewController {
     }
     
     @IBAction func didTappedSaveButton(_ sender: UIButton) {
-        
-    }
-}
+        guard let manufacturer = carManufacturerTextField.text, let model = carModelTextField.text else { return }
 
-extension UIView {
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
+        UserDefault.shared.manufacturer = manufacturer
+        UserDefault.shared.model = model
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

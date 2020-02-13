@@ -17,6 +17,10 @@
 		78773C8923F5A29A0025E635 /* AddCarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78773C8823F5A29A0025E635 /* AddCarViewController.storyboard */; };
 		78773C8E23F5ACEE0025E635 /* CarCatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C8C23F5ACEE0025E635 /* CarCatalogCell.swift */; };
 		78773C8F23F5ACEE0025E635 /* CarCatalogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78773C8D23F5ACEE0025E635 /* CarCatalogCell.xib */; };
+		78773C9123F5C91E0025E635 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C9023F5C91E0025E635 /* UIView+ext.swift */; };
+		78773C9323F5C93D0025E635 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C9223F5C93D0025E635 /* Car.swift */; };
+		78773C9523F5CB140025E635 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C9423F5CB140025E635 /* UserDefault.swift */; };
+		78773C9723F5CDA60025E635 /* GetCarsCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		78773C8823F5A29A0025E635 /* AddCarViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCarViewController.storyboard; sourceTree = "<group>"; };
 		78773C8C23F5ACEE0025E635 /* CarCatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCatalogCell.swift; sourceTree = "<group>"; };
 		78773C8D23F5ACEE0025E635 /* CarCatalogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarCatalogCell.xib; sourceTree = "<group>"; };
+		78773C9023F5C91E0025E635 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		78773C9223F5C93D0025E635 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		78773C9423F5CB140025E635 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsCatalog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,10 @@
 				78773C7323F5924C0025E635 /* Assets.xcassets */,
 				78773C7523F5924C0025E635 /* LaunchScreen.storyboard */,
 				78773C7823F5924C0025E635 /* Info.plist */,
+				78773C9023F5C91E0025E635 /* UIView+ext.swift */,
+				78773C9223F5C93D0025E635 /* Car.swift */,
+				78773C9423F5CB140025E635 /* UserDefault.swift */,
+				78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */,
 			);
 			path = CarTableView;
 			sourceTree = "<group>";
@@ -168,10 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78773C9723F5CDA60025E635 /* GetCarsCatalog.swift in Sources */,
+				78773C9123F5C91E0025E635 /* UIView+ext.swift in Sources */,
 				78773C6B23F592460025E635 /* AppDelegate.swift in Sources */,
 				78773C7F23F592E00025E635 /* CarCatalogTableViewController.swift in Sources */,
 				78773C8E23F5ACEE0025E635 /* CarCatalogCell.swift in Sources */,
+				78773C9523F5CB140025E635 /* UserDefault.swift in Sources */,
 				78773C6D23F592460025E635 /* SceneDelegate.swift in Sources */,
+				78773C9323F5C93D0025E635 /* Car.swift in Sources */,
 				78773C8623F5A1560025E635 /* AddCarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
