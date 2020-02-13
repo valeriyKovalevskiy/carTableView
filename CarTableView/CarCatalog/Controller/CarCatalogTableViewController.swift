@@ -22,6 +22,7 @@ class CarCatalogTableViewController: UITableViewController {
         
         carsCatalog = GetCarsCatalog.getCars()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sortList), name: NSNotification.Name(rawValue: "sort"), object: nil)
 
     }
 
@@ -31,8 +32,18 @@ class CarCatalogTableViewController: UITableViewController {
     }
     
     private func configureNavigationBarItems() {
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonTapped))
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        let add = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonTapped))
+        let search = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(searchButtonTapped))
+        navigationItem.rightBarButtonItems = [add, search]
+    }
+    
+    @objc func searchButtonTapped() {
+        let storyboard = UIStoryboard(name: "SearchCarViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "SearchCarViewController") as! SearchCarViewController
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func addButtonTapped() {
@@ -43,8 +54,13 @@ class CarCatalogTableViewController: UITableViewController {
     }
     
     @objc func loadList(){
-        car = Car(manufacturer: UserDefault.shared.manufacturer, model: UserDefault.shared.model)
+        car = Car(manufacturer: UserDefault.shared.manufacturer, model: UserDefault.shared.model, price: UserDefault.shared.price)
         carsCatalog.append(car!)
+        self.tableView.reloadData()
+    }
+    
+    @objc func sortList(){
+        carsCatalog.sort { $0.price < $1.price }
         self.tableView.reloadData()
     }
 
@@ -62,6 +78,8 @@ class CarCatalogTableViewController: UITableViewController {
 
         cell.carManufacturerLabel.text = carsCatalog[indexPath.row].manufacturer
         cell.carModelLabel.text = carsCatalog[indexPath.row].model
+        cell.carPriceLabel.text = String(carsCatalog[indexPath.row].price)
+
         return cell
     }
 

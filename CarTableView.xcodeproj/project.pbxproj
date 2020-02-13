@@ -21,6 +21,8 @@
 		78773C9323F5C93D0025E635 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C9223F5C93D0025E635 /* Car.swift */; };
 		78773C9523F5CB140025E635 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C9423F5CB140025E635 /* UserDefault.swift */; };
 		78773C9723F5CDA60025E635 /* GetCarsCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */; };
+		78773CA123F5EEF80025E635 /* SearchCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773CA023F5EEF80025E635 /* SearchCarViewController.swift */; };
+		78773CA323F5EF0A0025E635 /* SearchCarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78773CA223F5EF0A0025E635 /* SearchCarViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		78773C9223F5C93D0025E635 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		78773C9423F5CB140025E635 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsCatalog.swift; sourceTree = "<group>"; };
+		78773CA023F5EEF80025E635 /* SearchCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCarViewController.swift; sourceTree = "<group>"; };
+		78773CA223F5EF0A0025E635 /* SearchCarViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchCarViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,17 +76,16 @@
 		78773C6923F592460025E635 /* CarTableView */ = {
 			isa = PBXGroup;
 			children = (
+				78773C9F23F5EEC80025E635 /* SearchCar */,
 				78773C8B23F5AC930025E635 /* CarCatalog */,
 				78773C8A23F5AC830025E635 /* AddCar */,
 				78773C6A23F592460025E635 /* AppDelegate.swift */,
 				78773C6C23F592460025E635 /* SceneDelegate.swift */,
-				78773C7323F5924C0025E635 /* Assets.xcassets */,
 				78773C7523F5924C0025E635 /* LaunchScreen.storyboard */,
+				78773C7323F5924C0025E635 /* Assets.xcassets */,
 				78773C7823F5924C0025E635 /* Info.plist */,
-				78773C9023F5C91E0025E635 /* UIView+ext.swift */,
-				78773C9223F5C93D0025E635 /* Car.swift */,
-				78773C9423F5CB140025E635 /* UserDefault.swift */,
-				78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */,
+				78773C9E23F5E51C0025E635 /* Helpers */,
+				78773C9D23F5E50A0025E635 /* Extensions */,
 			);
 			path = CarTableView;
 			sourceTree = "<group>";
@@ -90,8 +93,8 @@
 		78773C8A23F5AC830025E635 /* AddCar */ = {
 			isa = PBXGroup;
 			children = (
-				78773C8823F5A29A0025E635 /* AddCarViewController.storyboard */,
-				78773C8423F5A1560025E635 /* AddCarViewController.swift */,
+				78773C9C23F5E4E40025E635 /* Controller */,
+				78773C9B23F5E4DD0025E635 /* View */,
 			);
 			path = AddCar;
 			sourceTree = "<group>";
@@ -99,12 +102,79 @@
 		78773C8B23F5AC930025E635 /* CarCatalog */ = {
 			isa = PBXGroup;
 			children = (
-				78773C7E23F592E00025E635 /* CarCatalogTableViewController.swift */,
+				78773C9A23F5E49A0025E635 /* Controller */,
+				78773C9923F5E4950025E635 /* View */,
+				78773C9823F5E48B0025E635 /* Model */,
+			);
+			path = CarCatalog;
+			sourceTree = "<group>";
+		};
+		78773C9823F5E48B0025E635 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */,
+				78773C9223F5C93D0025E635 /* Car.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78773C9923F5E4950025E635 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				78773C7023F592460025E635 /* Main.storyboard */,
 				78773C8C23F5ACEE0025E635 /* CarCatalogCell.swift */,
 				78773C8D23F5ACEE0025E635 /* CarCatalogCell.xib */,
 			);
-			path = CarCatalog;
+			path = View;
+			sourceTree = "<group>";
+		};
+		78773C9A23F5E49A0025E635 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				78773C7E23F592E00025E635 /* CarCatalogTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		78773C9B23F5E4DD0025E635 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78773C8823F5A29A0025E635 /* AddCarViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78773C9C23F5E4E40025E635 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				78773C8423F5A1560025E635 /* AddCarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		78773C9D23F5E50A0025E635 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				78773C9023F5C91E0025E635 /* UIView+ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		78773C9E23F5E51C0025E635 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				78773C9423F5CB140025E635 /* UserDefault.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		78773C9F23F5EEC80025E635 /* SearchCar */ = {
+			isa = PBXGroup;
+			children = (
+				78773CA023F5EEF80025E635 /* SearchCarViewController.swift */,
+				78773CA223F5EF0A0025E635 /* SearchCarViewController.storyboard */,
+			);
+			path = SearchCar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +239,7 @@
 				78773C8F23F5ACEE0025E635 /* CarCatalogCell.xib in Resources */,
 				78773C7723F5924C0025E635 /* LaunchScreen.storyboard in Resources */,
 				78773C7423F5924C0025E635 /* Assets.xcassets in Resources */,
+				78773CA323F5EF0A0025E635 /* SearchCarViewController.storyboard in Resources */,
 				78773C7223F592460025E635 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +254,7 @@
 				78773C9723F5CDA60025E635 /* GetCarsCatalog.swift in Sources */,
 				78773C9123F5C91E0025E635 /* UIView+ext.swift in Sources */,
 				78773C6B23F592460025E635 /* AppDelegate.swift in Sources */,
+				78773CA123F5EEF80025E635 /* SearchCarViewController.swift in Sources */,
 				78773C7F23F592E00025E635 /* CarCatalogTableViewController.swift in Sources */,
 				78773C8E23F5ACEE0025E635 /* CarCatalogCell.swift in Sources */,
 				78773C9523F5CB140025E635 /* UserDefault.swift in Sources */,

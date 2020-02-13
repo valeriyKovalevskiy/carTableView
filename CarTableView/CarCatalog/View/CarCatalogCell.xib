@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,23 +17,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="66V-PV-RyA">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bmw_1" translatesAutoresizingMaskIntoConstraints="NO" id="66V-PV-RyA">
                         <rect key="frame" x="10" y="10" width="160" height="120"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="YWv-s2-0yK"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="ho9-JT-zeK">
                         <rect key="frame" x="180" y="10" width="224" height="120"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scd-h7-IfE">
-                                <rect key="frame" x="0.0" y="0.0" width="224" height="43"/>
+                                <rect key="frame" x="0.0" y="0.0" width="224" height="17.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5d-7Z-gwU">
-                                <rect key="frame" x="0.0" y="77" width="224" height="43"/>
+                                <rect key="frame" x="0.0" y="51.5" width="224" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-Fk-R4t">
+                                <rect key="frame" x="0.0" y="102.5" width="224" height="17.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,6 +52,8 @@
                         </subviews>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="customLightCyan"/>
+                <color key="tintColor" name="customDarkCyan"/>
                 <constraints>
                     <constraint firstItem="66V-PV-RyA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="09D-zZ-7po"/>
                     <constraint firstAttribute="bottom" secondItem="ho9-JT-zeK" secondAttribute="bottom" constant="10" id="7r0-cO-u7u"/>
@@ -49,19 +63,36 @@
                     <constraint firstAttribute="bottom" secondItem="66V-PV-RyA" secondAttribute="bottom" constant="10" id="eKE-qv-Sh2"/>
                     <constraint firstItem="66V-PV-RyA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rdw-Dy-PLY"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <real key="value" value="20"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="customDarkCyan"/>
+            <color key="tintColor" name="customDarkCyan"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="10"/>
+                    <real key="value" value="20"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="carImageView" destination="66V-PV-RyA" id="Chs-6v-QI2"/>
                 <outlet property="carManufacturerLabel" destination="Scd-h7-IfE" id="B6E-3p-Oyf"/>
                 <outlet property="carModelLabel" destination="E5d-7Z-gwU" id="Iec-pd-6EU"/>
+                <outlet property="carPriceLabel" destination="ieF-Fk-R4t" id="Hkp-dT-fff"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="140.625"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="bmw_1" width="960" height="540"/>
+        <namedColor name="customDarkCyan">
+            <color red="0.64300000667572021" green="0.80400002002716064" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="customLightCyan">
+            <color red="0.94900000095367432" green="0.97600001096725464" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

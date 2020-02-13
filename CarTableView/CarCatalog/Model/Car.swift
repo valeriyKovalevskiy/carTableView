@@ -13,9 +13,11 @@ struct Car {
     
     let manufacturer: String
     let model: String
+    let price: Int
     
-    init(manufacturer: String, model: String) {
+    init(manufacturer: String, model: String, price: Int) {
         self.manufacturer = manufacturer
         self.model = model
+        self.price = price
     }
 }

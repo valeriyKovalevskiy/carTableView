@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Car View Controller-->
+        <scene sceneID="Pr3-6V-nvC">
+            <objects>
+                <viewController storyboardIdentifier="SearchCarViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="6hK-il-W4E" customClass="SearchCarViewController" customModule="CarTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RRZ-Mz-LDn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rw6-BG-rET">
+                                <rect key="frame" x="20" y="144" width="374" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntE-A2-fNt">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="H0p-Yq-uib"/>
+                                            <constraint firstAttribute="height" constant="50" id="RIX-BT-XAW"/>
+                                        </constraints>
+                                        <state key="normal" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="didTappedCancelButton:" destination="6hK-il-W4E" eventType="touchUpInside" id="gZd-qZ-HTD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LA0-Gn-oP5">
+                                        <rect key="frame" x="274" y="0.0" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="SKj-YL-KXw"/>
+                                            <constraint firstAttribute="height" constant="50" id="ZlY-PZ-HLM"/>
+                                        </constraints>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="didTappedSearchButton:" destination="6hK-il-W4E" eventType="touchUpInside" id="om1-7X-Mor"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UNI-do-k6y">
+                                        <rect key="frame" x="80.5" y="59" width="213" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort From Cheapest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Z6-Cj-er2">
+                                                <rect key="frame" x="0.0" y="0.0" width="154" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k8u-ew-fRn">
+                                                <rect key="frame" x="164" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="sortFromMinToMax:" destination="6hK-il-W4E" eventType="valueChanged" id="dG9-sH-21I"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="zXg-JO-IUA"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="customLightCyan"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="UNI-do-k6y" secondAttribute="bottom" constant="10" id="0hg-ZE-bw0"/>
+                                    <constraint firstAttribute="trailing" secondItem="LA0-Gn-oP5" secondAttribute="trailing" id="0tA-cS-Bbv"/>
+                                    <constraint firstItem="LA0-Gn-oP5" firstAttribute="top" secondItem="Rw6-BG-rET" secondAttribute="top" id="Ji8-19-aAq"/>
+                                    <constraint firstAttribute="height" constant="100" id="VQI-Lk-JFo"/>
+                                    <constraint firstAttribute="width" constant="374" id="bkH-fI-XBg"/>
+                                    <constraint firstItem="ntE-A2-fNt" firstAttribute="top" secondItem="Rw6-BG-rET" secondAttribute="top" id="j37-g2-gfy"/>
+                                    <constraint firstItem="UNI-do-k6y" firstAttribute="centerX" secondItem="Rw6-BG-rET" secondAttribute="centerX" id="sqs-IE-NZt"/>
+                                    <constraint firstItem="ntE-A2-fNt" firstAttribute="leading" secondItem="Rw6-BG-rET" secondAttribute="leading" id="yRE-Yf-unT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="grayWithAlpha"/>
+                        <constraints>
+                            <constraint firstItem="Rw6-BG-rET" firstAttribute="centerX" secondItem="RRZ-Mz-LDn" secondAttribute="centerX" id="9f9-tV-8nA"/>
+                            <constraint firstItem="Rw6-BG-rET" firstAttribute="top" secondItem="rQH-Lc-hTO" secondAttribute="top" constant="100" id="Bo7-1H-P0Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rQH-Lc-hTO"/>
+                    </view>
+                    <connections>
+                        <outlet property="switcher" destination="k8u-ew-fRn" id="kZJ-e1-2L5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qui-Mu-obS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="126" y="125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xmark" catalog="system" width="64" height="56"/>
+        <namedColor name="customLightCyan">
+            <color red="0.94900000095367432" green="0.97600001096725464" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grayWithAlpha">
+            <color red="0.42899999022483826" green="0.41999998688697815" blue="0.43000000715255737" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
