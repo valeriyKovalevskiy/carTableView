@@ -9,6 +9,11 @@
 import UIKit
 import Foundation
 
+
+//protocol AddCarProtocol {
+//    func addCar(manufacturer: String, model: String, price: Int)
+//}
+
 class CarCatalogTableViewController: UITableViewController {
     
     var carsCatalog = [Car]()
@@ -16,7 +21,7 @@ class CarCatalogTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         registerTableViewCell()
         configureNavigationBarItems()
         
@@ -73,6 +78,10 @@ class CarCatalogTableViewController: UITableViewController {
         return carsCatalog.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCatalogCell", for: indexPath) as! CarCatalogCell
 
@@ -89,4 +98,25 @@ class CarCatalogTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "CarInfoViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "CarInfoViewController") as? CarInfoViewController
+        let selectedRow = indexPath.row
+        vc?.titleLabelText = carsCatalog[selectedRow].manufacturer
+        vc?.carModelText = carsCatalog[selectedRow].model
+        vc?.carPriceText = String(carsCatalog[selectedRow].price)
+//        vc?.carImage = carsCatalog[selectedRow].
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+
 }
+
+//extension CarCatalogTableViewController: AddCarProtocol {
+//
+//    func addCar(manufacturer: String, model: String, price: Int) {
+//        car = Car(manufacturer: manufacturer, model: model, price: price)
+//        carsCatalog.append(car!)
+//        tableView.reloadData()
+//    }
+//}

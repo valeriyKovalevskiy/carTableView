@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Car Info View Controller-->
+        <scene sceneID="6mD-VL-4Dx">
+            <objects>
+                <viewController storyboardIdentifier="CarInfoViewController" id="vDc-1c-fgN" customClass="CarInfoViewController" customModule="CarTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JJn-Ll-Ufe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="sCE-fL-SmH">
+                                <rect key="frame" x="20.5" y="94" width="373" height="89"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEI-iC-1Wi">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkC-HT-HhT">
+                                        <rect key="frame" x="0.0" y="30" width="373" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znp-er-Zzg">
+                                        <rect key="frame" x="0.0" y="59.5" width="373" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="znp-er-Zzg" firstAttribute="width" secondItem="sCE-fL-SmH" secondAttribute="width" id="2E5-3b-pp9"/>
+                                    <constraint firstItem="lEI-iC-1Wi" firstAttribute="width" secondItem="sCE-fL-SmH" secondAttribute="width" id="anT-4m-L6h"/>
+                                    <constraint firstItem="PkC-HT-HhT" firstAttribute="width" secondItem="sCE-fL-SmH" secondAttribute="width" id="meT-Ms-vzs"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xcb-LQ-I3a">
+                                <rect key="frame" x="20.5" y="261.5" width="373" height="373"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xcb-LQ-I3a" secondAttribute="height" multiplier="1:1" id="VSP-K5-HFi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="customLightCyan"/>
+                        <constraints>
+                            <constraint firstItem="sCE-fL-SmH" firstAttribute="top" secondItem="tpz-Hd-oE2" secondAttribute="top" constant="50" id="3Ik-zk-079"/>
+                            <constraint firstItem="Xcb-LQ-I3a" firstAttribute="centerX" secondItem="JJn-Ll-Ufe" secondAttribute="centerX" id="KNF-48-zXj"/>
+                            <constraint firstItem="Xcb-LQ-I3a" firstAttribute="width" secondItem="JJn-Ll-Ufe" secondAttribute="width" multiplier="0.9" id="MHO-u1-h5w"/>
+                            <constraint firstItem="Xcb-LQ-I3a" firstAttribute="centerY" secondItem="JJn-Ll-Ufe" secondAttribute="centerY" id="sDo-9h-aht"/>
+                            <constraint firstItem="sCE-fL-SmH" firstAttribute="centerX" secondItem="JJn-Ll-Ufe" secondAttribute="centerX" id="xBM-uy-1TL"/>
+                            <constraint firstItem="sCE-fL-SmH" firstAttribute="width" secondItem="JJn-Ll-Ufe" secondAttribute="width" multiplier="0.9" id="ygQ-gr-aiD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tpz-Hd-oE2"/>
+                    </view>
+                    <connections>
+                        <outlet property="carImageView" destination="Xcb-LQ-I3a" id="1sX-qm-0xr"/>
+                        <outlet property="carModelLabel" destination="PkC-HT-HhT" id="8mP-V4-wbq"/>
+                        <outlet property="carPriceLabel" destination="znp-er-Zzg" id="ig4-U0-B6h"/>
+                        <outlet property="carTitleLabel" destination="lEI-iC-1Wi" id="0YN-TB-pXR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F17-HC-tCr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="218.84057971014494" y="126.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="customLightCyan">
+            <color red="0.94900000095367432" green="0.97600001096725464" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

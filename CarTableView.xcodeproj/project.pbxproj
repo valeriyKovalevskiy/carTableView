@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7817BCF723F68317002A8802 /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817BCF623F68317002A8802 /* CarInfoViewController.swift */; };
+		7817BCF923F68331002A8802 /* CarInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7817BCF823F68331002A8802 /* CarInfoViewController.storyboard */; };
 		78773C6B23F592460025E635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C6A23F592460025E635 /* AppDelegate.swift */; };
 		78773C6D23F592460025E635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C6C23F592460025E635 /* SceneDelegate.swift */; };
 		78773C7223F592460025E635 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78773C7023F592460025E635 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7817BCF623F68317002A8802 /* CarInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
+		7817BCF823F68331002A8802 /* CarInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarInfoViewController.storyboard; sourceTree = "<group>"; };
 		78773C6723F592460025E635 /* CarTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78773C6A23F592460025E635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78773C6C23F592460025E635 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		785DC91C23F67DD300B18E17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78773CA023F5EEF80025E635 /* SearchCarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		785DC91D23F67DDB00B18E17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				78773CA223F5EF0A0025E635 /* SearchCarViewController.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		785DC91E23F6804C00B18E17 /* CarInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7817BCF623F68317002A8802 /* CarInfoViewController.swift */,
+				7817BCF823F68331002A8802 /* CarInfoViewController.storyboard */,
+			);
+			path = CarInfo;
+			sourceTree = "<group>";
+		};
 		78773C5E23F592460025E635 = {
 			isa = PBXGroup;
 			children = (
@@ -76,9 +105,10 @@
 		78773C6923F592460025E635 /* CarTableView */ = {
 			isa = PBXGroup;
 			children = (
-				78773C9F23F5EEC80025E635 /* SearchCar */,
+				785DC91E23F6804C00B18E17 /* CarInfo */,
 				78773C8B23F5AC930025E635 /* CarCatalog */,
 				78773C8A23F5AC830025E635 /* AddCar */,
+				78773C9F23F5EEC80025E635 /* SearchCar */,
 				78773C6A23F592460025E635 /* AppDelegate.swift */,
 				78773C6C23F592460025E635 /* SceneDelegate.swift */,
 				78773C7523F5924C0025E635 /* LaunchScreen.storyboard */,
@@ -171,8 +201,8 @@
 		78773C9F23F5EEC80025E635 /* SearchCar */ = {
 			isa = PBXGroup;
 			children = (
-				78773CA023F5EEF80025E635 /* SearchCarViewController.swift */,
-				78773CA223F5EF0A0025E635 /* SearchCarViewController.storyboard */,
+				785DC91D23F67DDB00B18E17 /* Controller */,
+				785DC91C23F67DD300B18E17 /* View */,
 			);
 			path = SearchCar;
 			sourceTree = "<group>";
@@ -236,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78773C8923F5A29A0025E635 /* AddCarViewController.storyboard in Resources */,
+				7817BCF923F68331002A8802 /* CarInfoViewController.storyboard in Resources */,
 				78773C8F23F5ACEE0025E635 /* CarCatalogCell.xib in Resources */,
 				78773C7723F5924C0025E635 /* LaunchScreen.storyboard in Resources */,
 				78773C7423F5924C0025E635 /* Assets.xcassets in Resources */,
@@ -257,6 +288,7 @@
 				78773CA123F5EEF80025E635 /* SearchCarViewController.swift in Sources */,
 				78773C7F23F592E00025E635 /* CarCatalogTableViewController.swift in Sources */,
 				78773C8E23F5ACEE0025E635 /* CarCatalogCell.swift in Sources */,
+				7817BCF723F68317002A8802 /* CarInfoViewController.swift in Sources */,
 				78773C9523F5CB140025E635 /* UserDefault.swift in Sources */,
 				78773C6D23F592460025E635 /* SceneDelegate.swift in Sources */,
 				78773C9323F5C93D0025E635 /* Car.swift in Sources */,
@@ -405,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UV3UVQ6CK;
 				INFOPLIST_FILE = CarTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -422,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UV3UVQ6CK;
 				INFOPLIST_FILE = CarTableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

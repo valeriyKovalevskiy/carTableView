@@ -17,10 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bmw_1" translatesAutoresizingMaskIntoConstraints="NO" id="66V-PV-RyA">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="66V-PV-RyA">
                         <rect key="frame" x="10" y="10" width="160" height="120"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="YWv-s2-0yK"/>
+                            <constraint firstAttribute="height" constant="120" id="piz-iP-qlo"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -57,11 +58,10 @@
                 <constraints>
                     <constraint firstItem="66V-PV-RyA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="09D-zZ-7po"/>
                     <constraint firstAttribute="bottom" secondItem="ho9-JT-zeK" secondAttribute="bottom" constant="10" id="7r0-cO-u7u"/>
+                    <constraint firstItem="66V-PV-RyA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9je-ZU-6sO"/>
                     <constraint firstItem="ho9-JT-zeK" firstAttribute="leading" secondItem="66V-PV-RyA" secondAttribute="trailing" constant="10" id="H8k-s3-fNe"/>
                     <constraint firstItem="ho9-JT-zeK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ipg-bu-8KI"/>
                     <constraint firstAttribute="trailing" secondItem="ho9-JT-zeK" secondAttribute="trailing" constant="10" id="NDH-VZ-86i"/>
-                    <constraint firstAttribute="bottom" secondItem="66V-PV-RyA" secondAttribute="bottom" constant="10" id="eKE-qv-Sh2"/>
-                    <constraint firstItem="66V-PV-RyA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rdw-Dy-PLY"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -87,7 +87,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bmw_1" width="960" height="540"/>
+        <image name="noImage" width="300" height="300"/>
         <namedColor name="customDarkCyan">
             <color red="0.64300000667572021" green="0.80400002002716064" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

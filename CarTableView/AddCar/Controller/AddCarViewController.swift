@@ -15,6 +15,8 @@ class AddCarViewController: UIViewController {
     @IBOutlet weak var carModelTextField: UITextField!
     @IBOutlet weak var carPriceTextField: UITextField!
     
+//    var delegate: AddCarProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,13 +26,13 @@ class AddCarViewController: UIViewController {
     }
     
     @IBAction func didTappedSaveButton(_ sender: UIButton) {
-        guard let manufacturer = carManufacturerTextField.text,
-              let model = carModelTextField.text,
-            let price = carPriceTextField.text else { return }
-
+        guard let manufacturer = carManufacturerTextField.text, let model = carModelTextField.text, let price = carPriceTextField.text else { return }
+        guard !manufacturer.isEmpty, !model.isEmpty, !price.isEmpty else { return }
+        
         UserDefault.shared.manufacturer = manufacturer
         UserDefault.shared.model = model
         UserDefault.shared.price = Int(price)!
+//        delegate?.addCar(manufacturer: manufacturer, model: model, price: UserDefault.shared.price)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         self.dismiss(animated: true, completion: nil)
     }
