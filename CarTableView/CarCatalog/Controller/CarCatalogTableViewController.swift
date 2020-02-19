@@ -16,21 +16,48 @@ import Foundation
 
 class CarCatalogTableViewController: UITableViewController {
     
+    
+    let searchController = UISearchController(searchResultsController: nil)
     var carsCatalog = [Car]()
+    var filteredCarsCatalog = [Car]()
+    
+    var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else {
+            return false
+        }
+        return text.isEmpty
+    }
+    var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
     var car: Car?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        registerTableViewCell()
+
+        setupSearchController()
         configureNavigationBarItems()
+        registerTableViewCell()
+        addObservers()
         
         carsCatalog = GetCarsCatalog.getCars()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(sortList), name: NSNotification.Name(rawValue: "sort"), object: nil)
-
     }
 
+    
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = true
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sortList), name: NSNotification.Name(rawValue: "sort"), object: nil)
+    }
+    
     private func registerTableViewCell() {
         let nib = UINib(nibName: "CarCatalogCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CarCatalogCell")
@@ -75,7 +102,8 @@ class CarCatalogTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return carsCatalog.count
+        
+        return isFiltering ? filteredCarsCatalog.count : carsCatalog.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,10 +112,17 @@ class CarCatalogTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCatalogCell", for: indexPath) as! CarCatalogCell
-
-        cell.carManufacturerLabel.text = carsCatalog[indexPath.row].manufacturer
-        cell.carModelLabel.text = carsCatalog[indexPath.row].model
-        cell.carPriceLabel.text = String(carsCatalog[indexPath.row].price)
+        var cellData: Car
+        
+        if isFiltering {
+            cellData = filteredCarsCatalog[indexPath.row]
+        } else {
+            cellData = carsCatalog[indexPath.row]
+        }
+//        isFiltering ? cellData = carsCatalog[indexPath.row] : cellData = filteredCarsCatalog[indexPath.row]
+        cell.carManufacturerLabel.text = cellData.manufacturer
+        cell.carModelLabel.text = cellData.model
+        cell.carPriceLabel.text = String(cellData.price)
 
         return cell
     }
@@ -110,6 +145,32 @@ class CarCatalogTableViewController: UITableViewController {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 
+
+}
+
+extension CarCatalogTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == "" {
+            print("UISearchBar.text cleared!")
+        }
+    }
+}
+
+extension CarCatalogTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        
+        filterContentForSearchText(text)
+        
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredCarsCatalog = carsCatalog.filter({ $0.manufacturer.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
 }
 
 //extension CarCatalogTableViewController: AddCarProtocol {
