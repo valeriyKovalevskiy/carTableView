@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68776276E9436564DA205E0D /* Pods_CarTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682BE6757F735034A02B32D7 /* Pods_CarTableView.framework */; };
 		7817BCF723F68317002A8802 /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817BCF623F68317002A8802 /* CarInfoViewController.swift */; };
 		7817BCF923F68331002A8802 /* CarInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7817BCF823F68331002A8802 /* CarInfoViewController.storyboard */; };
 		78773C6B23F592460025E635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78773C6A23F592460025E635 /* AppDelegate.swift */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A65846A494BF31B82FBDA31 /* Pods-CarTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarTableView.release.xcconfig"; path = "Target Support Files/Pods-CarTableView/Pods-CarTableView.release.xcconfig"; sourceTree = "<group>"; };
+		682BE6757F735034A02B32D7 /* Pods_CarTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7817BCF623F68317002A8802 /* CarInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
 		7817BCF823F68331002A8802 /* CarInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarInfoViewController.storyboard; sourceTree = "<group>"; };
 		78773C6723F592460025E635 /* CarTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +51,7 @@
 		78773C9623F5CDA60025E635 /* GetCarsCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsCatalog.swift; sourceTree = "<group>"; };
 		78773CA023F5EEF80025E635 /* SearchCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCarViewController.swift; sourceTree = "<group>"; };
 		78773CA223F5EF0A0025E635 /* SearchCarViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchCarViewController.storyboard; sourceTree = "<group>"; };
+		83C788B2DEA98287AC7B35C2 /* Pods-CarTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarTableView.debug.xcconfig"; path = "Target Support Files/Pods-CarTableView/Pods-CarTableView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +59,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68776276E9436564DA205E0D /* Pods_CarTableView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B635927867766E714ACC26A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				682BE6757F735034A02B32D7 /* Pods_CarTableView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44B8E5DD1CCBD683C4A9E509 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83C788B2DEA98287AC7B35C2 /* Pods-CarTableView.debug.xcconfig */,
+				5A65846A494BF31B82FBDA31 /* Pods-CarTableView.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		785DC91C23F67DD300B18E17 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +114,8 @@
 			children = (
 				78773C6923F592460025E635 /* CarTableView */,
 				78773C6823F592460025E635 /* Products */,
+				44B8E5DD1CCBD683C4A9E509 /* Pods */,
+				2B635927867766E714ACC26A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,9 +239,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78773C7B23F5924C0025E635 /* Build configuration list for PBXNativeTarget "CarTableView" */;
 			buildPhases = (
+				451197BF715D295A2E187132 /* [CP] Check Pods Manifest.lock */,
 				78773C6323F592460025E635 /* Sources */,
 				78773C6423F592460025E635 /* Frameworks */,
 				78773C6523F592460025E635 /* Resources */,
+				6E71A04C9321E1C6F2F82BF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +303,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		451197BF715D295A2E187132 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarTableView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E71A04C9321E1C6F2F82BF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarTableView/Pods-CarTableView-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarTableView/Pods-CarTableView-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarTableView/Pods-CarTableView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78773C6323F592460025E635 /* Sources */ = {
@@ -434,6 +503,7 @@
 		};
 		78773C7C23F5924C0025E635 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83C788B2DEA98287AC7B35C2 /* Pods-CarTableView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +522,7 @@
 		};
 		78773C7D23F5924C0025E635 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A65846A494BF31B82FBDA31 /* Pods-CarTableView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
