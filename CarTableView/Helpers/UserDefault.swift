@@ -61,6 +61,17 @@ class UserDefault {
             return UserDefaults.standard.integer(forKey: "price")
         }
     }
+    
+    var image: Data {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "image")
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            return UserDefaults.standard.object(forKey: "image") as! Data
+        }
+    }
+
 }
 
 

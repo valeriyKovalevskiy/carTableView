@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="66V-PV-RyA">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="66V-PV-RyA">
                         <rect key="frame" x="10" y="10" width="160" height="120"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="YWv-s2-0yK"/>
@@ -87,7 +87,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="noImage" width="300" height="300"/>
         <namedColor name="customDarkCyan">
             <color red="0.64300000667572021" green="0.80400002002716064" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

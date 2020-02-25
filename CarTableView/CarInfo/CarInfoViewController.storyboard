@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -13,26 +13,26 @@
             <objects>
                 <viewController storyboardIdentifier="CarInfoViewController" id="vDc-1c-fgN" customClass="CarInfoViewController" customModule="CarTableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JJn-Ll-Ufe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="sCE-fL-SmH">
-                                <rect key="frame" x="20.5" y="94" width="373" height="89"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sCE-fL-SmH">
+                                <rect key="frame" x="16" y="50" width="288" height="129"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEI-iC-1Wi">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkC-HT-HhT">
-                                        <rect key="frame" x="0.0" y="30" width="373" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="288" height="29.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znp-er-Zzg">
-                                        <rect key="frame" x="0.0" y="59.5" width="373" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="288" height="29.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -45,10 +45,15 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xcb-LQ-I3a">
-                                <rect key="frame" x="20.5" y="261.5" width="373" height="373"/>
+                                <rect key="frame" x="16" y="199" width="288" height="288"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Xcb-LQ-I3a" secondAttribute="height" multiplier="1:1" id="VSP-K5-HFi"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="customLightCyan"/>
@@ -56,7 +61,7 @@
                             <constraint firstItem="sCE-fL-SmH" firstAttribute="top" secondItem="tpz-Hd-oE2" secondAttribute="top" constant="50" id="3Ik-zk-079"/>
                             <constraint firstItem="Xcb-LQ-I3a" firstAttribute="centerX" secondItem="JJn-Ll-Ufe" secondAttribute="centerX" id="KNF-48-zXj"/>
                             <constraint firstItem="Xcb-LQ-I3a" firstAttribute="width" secondItem="JJn-Ll-Ufe" secondAttribute="width" multiplier="0.9" id="MHO-u1-h5w"/>
-                            <constraint firstItem="Xcb-LQ-I3a" firstAttribute="centerY" secondItem="JJn-Ll-Ufe" secondAttribute="centerY" id="sDo-9h-aht"/>
+                            <constraint firstItem="Xcb-LQ-I3a" firstAttribute="top" secondItem="sCE-fL-SmH" secondAttribute="bottom" constant="20" id="sCq-lc-GRk"/>
                             <constraint firstItem="sCE-fL-SmH" firstAttribute="centerX" secondItem="JJn-Ll-Ufe" secondAttribute="centerX" id="xBM-uy-1TL"/>
                             <constraint firstItem="sCE-fL-SmH" firstAttribute="width" secondItem="JJn-Ll-Ufe" secondAttribute="width" multiplier="0.9" id="ygQ-gr-aiD"/>
                         </constraints>

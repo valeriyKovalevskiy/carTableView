@@ -22,25 +22,40 @@ class CarInfoViewController: UIViewController {
     var carPriceText: String?
     var carImage: UIImage?
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fillLabels()
+        fillImageView()
+        configureNavigationBarItems()
+    }
+    
+    //MARK: - Private methods
+    private func fillLabels() {
         carTitleLabel.text = titleLabelText
         carModelLabel.text = carModelText
         carPriceLabel.text = carPriceText
-        carImageView.image = UIImage(named: "noImage")
-        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func fillImageView() {
+        carImageView.image = carImage
     }
-    */
+    
+    private func configureNavigationBarItems() {
+        let share = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareButtonTapped))
+        navigationItem.rightBarButtonItem = share
+    }
+    
+    //MARK: - Objc methods
+    @objc func shareButtonTapped() {
+        let image = carImageView.image
+        let text = carTitleLabel.text! + " " + carModelLabel.text! //сюда можно докидать текста
+        let elementsToShare = [text, image! ] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: elementsToShare , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 
+    
 }

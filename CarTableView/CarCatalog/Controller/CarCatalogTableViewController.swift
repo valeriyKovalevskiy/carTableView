@@ -9,18 +9,15 @@
 import UIKit
 import Foundation
 
-
-//protocol AddCarProtocol {
-//    func addCar(manufacturer: String, model: String, price: Int)
-//}
-
 class CarCatalogTableViewController: UITableViewController {
     
-    
+    //MARK: - Constants
     let searchController = UISearchController(searchResultsController: nil)
+    
+    //MARK: - Properties
+    var car: Car?
     var carsCatalog = [Car]()
     var filteredCarsCatalog = [Car]()
-    
     var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else {
             return false
@@ -31,8 +28,7 @@ class CarCatalogTableViewController: UITableViewController {
         return searchController.isActive && !searchBarIsEmpty
     }
     
-    var car: Car?
-    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,9 +39,9 @@ class CarCatalogTableViewController: UITableViewController {
         
         carsCatalog = GetCarsCatalog.getCars()
     }
-
     
-    func setupSearchController() {
+    //MARK: - Private methods
+    private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = true
@@ -53,9 +49,12 @@ class CarCatalogTableViewController: UITableViewController {
         definesPresentationContext = true
     }
     
-    func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(sortList), name: NSNotification.Name(rawValue: "sort"), object: nil)
+    private func configureNavigationBarItems() {
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        let add = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonTapped))
+        let sort = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortButtonTapped))
+        navigationItem.rightBarButtonItems = [add, sort]
     }
     
     private func registerTableViewCell() {
@@ -63,15 +62,14 @@ class CarCatalogTableViewController: UITableViewController {
         tableView.register(nib, forCellReuseIdentifier: "CarCatalogCell")
     }
     
-    private func configureNavigationBarItems() {
-        navigationItem.leftBarButtonItem = editButtonItem
-        
-        let add = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonTapped))
-        let search = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(searchButtonTapped))
-        navigationItem.rightBarButtonItems = [add, search]
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(addCars), name: NSNotification.Name(rawValue: "add"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sortCars), name: NSNotification.Name(rawValue: "sort"), object: nil)
+
     }
     
-    @objc func searchButtonTapped() {
+    //MARK: - Objc methods
+    @objc func sortButtonTapped() {
         let storyboard = UIStoryboard(name: "SearchCarViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "SearchCarViewController") as! SearchCarViewController
         vc.modalPresentationStyle = .overFullScreen
@@ -85,13 +83,13 @@ class CarCatalogTableViewController: UITableViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    @objc func loadList(){
-        car = Car(manufacturer: UserDefault.shared.manufacturer, model: UserDefault.shared.model, price: UserDefault.shared.price)
+    @objc func addCars(){
+        car = Car(manufacturer: UserDefault.shared.manufacturer, model: UserDefault.shared.model, price: UserDefault.shared.price, image: UIImage(data: UserDefault.shared.image)!)
         carsCatalog.append(car!)
         self.tableView.reloadData()
     }
     
-    @objc func sortList(){
+    @objc func sortCars(){
         carsCatalog.sort { $0.price < $1.price }
         self.tableView.reloadData()
     }
@@ -102,24 +100,22 @@ class CarCatalogTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return isFiltering ? filteredCarsCatalog.count : carsCatalog.count
+        isFiltering ? filteredCarsCatalog.count : carsCatalog.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        140
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCatalogCell", for: indexPath) as! CarCatalogCell
         var cellData: Car
-        
         if isFiltering {
             cellData = filteredCarsCatalog[indexPath.row]
         } else {
             cellData = carsCatalog[indexPath.row]
         }
-//        isFiltering ? cellData = carsCatalog[indexPath.row] : cellData = filteredCarsCatalog[indexPath.row]
+        cell.carImageView.image = cellData.image
         cell.carManufacturerLabel.text = cellData.manufacturer
         cell.carModelLabel.text = cellData.model
         cell.carPriceLabel.text = String(cellData.price)
@@ -141,13 +137,14 @@ class CarCatalogTableViewController: UITableViewController {
         vc?.titleLabelText = carsCatalog[selectedRow].manufacturer
         vc?.carModelText = carsCatalog[selectedRow].model
         vc?.carPriceText = String(carsCatalog[selectedRow].price)
-//        vc?.carImage = carsCatalog[selectedRow].
+        vc?.carImage = carsCatalog[selectedRow].image
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 
 
 }
 
+//MARK: - Extensions
 extension CarCatalogTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -162,22 +159,12 @@ extension CarCatalogTableViewController: UISearchResultsUpdating {
         guard let text = searchController.searchBar.text else { return }
         
         filterContentForSearchText(text)
-        
     }
     
     private func filterContentForSearchText(_ searchText: String) {
         filteredCarsCatalog = carsCatalog.filter({ $0.manufacturer.lowercased().contains(searchText.lowercased())
         })
-        
         tableView.reloadData()
     }
+    
 }
-
-//extension CarCatalogTableViewController: AddCarProtocol {
-//
-//    func addCar(manufacturer: String, model: String, price: Int) {
-//        car = Car(manufacturer: manufacturer, model: model, price: price)
-//        carsCatalog.append(car!)
-//        tableView.reloadData()
-//    }
-//}
