@@ -9,14 +9,18 @@
 import UIKit
 import Foundation
 
+
+//protocol AddCarProtocol {
+//    func addCar(manufacturer: String, model: String, price: Int)
+//}
+
 class CarCatalogTableViewController: UITableViewController {
     
-    //MARK: - Constants
-    let searchController = UISearchController(searchResultsController: nil)
     
-    //MARK: - Properties
+    let searchController = UISearchController(searchResultsController: nil)
     var carsCatalog = [Car]()
     var filteredCarsCatalog = [Car]()
+    
     var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else {
             return false
@@ -26,9 +30,9 @@ class CarCatalogTableViewController: UITableViewController {
     var isFiltering: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
+    
     var car: Car?
     
-    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,11 +40,12 @@ class CarCatalogTableViewController: UITableViewController {
         configureNavigationBarItems()
         registerTableViewCell()
         addObservers()
+        
         carsCatalog = GetCarsCatalog.getCars()
     }
+
     
-    //MARK: - Private Methods
-    private func setupSearchController() {
+    func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = true
@@ -48,7 +53,7 @@ class CarCatalogTableViewController: UITableViewController {
         definesPresentationContext = true
     }
     
-    private func addObservers() {
+    func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(sortList), name: NSNotification.Name(rawValue: "sort"), object: nil)
     }
@@ -66,7 +71,6 @@ class CarCatalogTableViewController: UITableViewController {
         navigationItem.rightBarButtonItems = [add, search]
     }
     
-    //MARK: - Objc Methods
     @objc func searchButtonTapped() {
         let storyboard = UIStoryboard(name: "SearchCarViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "SearchCarViewController") as! SearchCarViewController
@@ -92,9 +96,13 @@ class CarCatalogTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
 
-    // MARK: - TableView DataSource Delegate Methods
+    // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return isFiltering ? filteredCarsCatalog.count : carsCatalog.count
     }
     
@@ -140,7 +148,6 @@ class CarCatalogTableViewController: UITableViewController {
 
 }
 
-//MARK: - Extensions
 extension CarCatalogTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -155,6 +162,7 @@ extension CarCatalogTableViewController: UISearchResultsUpdating {
         guard let text = searchController.searchBar.text else { return }
         
         filterContentForSearchText(text)
+        
     }
     
     private func filterContentForSearchText(_ searchText: String) {
@@ -164,3 +172,12 @@ extension CarCatalogTableViewController: UISearchResultsUpdating {
         tableView.reloadData()
     }
 }
+
+//extension CarCatalogTableViewController: AddCarProtocol {
+//
+//    func addCar(manufacturer: String, model: String, price: Int) {
+//        car = Car(manufacturer: manufacturer, model: model, price: price)
+//        carsCatalog.append(car!)
+//        tableView.reloadData()
+//    }
+//}
